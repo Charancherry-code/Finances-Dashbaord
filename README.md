@@ -1,5 +1,7 @@
 # Finance Dashboard
 
+<img width="1920" height="1686" alt="dashboard" src="https://github.com/user-attachments/assets/28832a7f-4700-4141-82ab-b4f31b0b919f" />
+
 A clean React + Vite finance dashboard for tracking income, expenses, balances, and spending patterns. The app uses mock data, local state, and a simple role-based UI to show how a dashboard can be built without a backend.
 
 ## Overview
