@@ -3,7 +3,18 @@ import { AppContext } from "../context/AppContext";
 import Panel from "./Panel";
 
 const TransactionTable = () => {
-  const { transactions, role, setTransactions } = useContext(AppContext);
+  const { transactions, search, setSearch, role, setTransactions } =
+    useContext(AppContext);
+
+  const normalizedSearch = search.trim().toLowerCase();
+
+  const filtered = transactions.filter((t) => {
+    if (!normalizedSearch) return true;
+
+    return `${t.category} ${t.type} ${t.date} ${t.amount}`
+      .toLowerCase()
+      .includes(normalizedSearch);
+  });
 
   const handleDelete = (id) => {
     setTransactions((prev) => prev.filter((t) => t.id !== id));
@@ -14,6 +25,16 @@ const TransactionTable = () => {
       <h2 className="text-lg font-semibold text-slate-900 dark:text-white">
         Transactions
       </h2>
+
+      <div className="mt-4">
+        <input
+          type="text"
+          placeholder="Search by category, type, date, or amount..."
+          className="w-full border p-2 rounded"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+      </div>
 
       <div className="mt-4 overflow-x-auto">
         <table className="w-full text-left text-sm">
@@ -28,7 +49,7 @@ const TransactionTable = () => {
           </thead>
 
           <tbody>
-            {transactions.length === 0 ? (
+            {filtered.length === 0 ? (
               <tr>
                 <td
                   colSpan={role === "admin" ? 5 : 4}
@@ -38,7 +59,7 @@ const TransactionTable = () => {
                 </td>
               </tr>
             ) : (
-              transactions.map((t) => (
+              filtered.map((t) => (
                 <tr
                   key={t.id}
                   className="border-b transition hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-900"
