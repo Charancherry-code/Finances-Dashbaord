@@ -22,22 +22,33 @@ const TransactionTable = () => {
 
   return (
     <Panel>
-      <h2 className="text-lg font-semibold text-slate-900 dark:text-white">
-        Transactions
-      </h2>
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <h2 className="text-lg font-semibold text-slate-900 dark:text-white">
+            Transactions
+          </h2>
+          <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
+            Search, review, and manage your entries.
+          </p>
+        </div>
+
+        <div className="text-sm text-slate-500 dark:text-slate-400">
+          Showing {filtered.length} of {transactions.length}
+        </div>
+      </div>
 
       <div className="mt-4">
         <input
           type="text"
           placeholder="Search by category, type, date, or amount..."
-          className="w-full border p-2 rounded"
+          className="w-full border p-2 rounded bg-white dark:border-slate-700 dark:bg-black dark:text-white"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
       </div>
 
       <div className="mt-4 overflow-x-auto">
-        <table className="w-full text-left text-sm">
+        <table className="min-w-160 w-full text-left text-sm">
           <thead>
             <tr className="border-b text-slate-500 dark:border-slate-700 dark:text-slate-400">
               <th className="pb-3 font-medium">Date</th>
