@@ -1,8 +1,12 @@
 # Finance Dashboard
 
-<img width="1920" height="1686" alt="dashboard" src="https://github.com/user-attachments/assets/28832a7f-4700-4141-82ab-b4f31b0b919f" />
+![Dashboard Preview](https://github.com/user-attachments/assets/28832a7f-4700-4141-82ab-b4f31b0b919f)
 
 A clean React + Vite finance dashboard for tracking income, expenses, balances, and spending patterns. The app uses mock data, local state, and a simple role-based UI to show how a dashboard can be built without a backend.
+
+## Live Demo
+
+https://finances-dashbaord.vercel.app/
 
 ## Overview
 
@@ -43,17 +47,17 @@ This dashboard lets users:
 
 ```text
 finance-dashboard/
-├── src/
-│   ├── components/
-│   ├── context/
-│   ├── data/
-│   ├── pages/
-│   ├── App.jsx
-│   ├── main.jsx
-│   └── index.css
-├── public/
-├── package.json
-└── vite.config.js
+|-- src/
+|   |-- components/
+|   |-- context/
+|   |-- data/
+|   |-- pages/
+|   |-- App.jsx
+|   |-- main.jsx
+|   \-- index.css
+|-- public/
+|-- package.json
+\-- vite.config.js
 ```
 
 ## Getting Started
